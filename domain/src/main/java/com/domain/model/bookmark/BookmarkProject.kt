@@ -1,0 +1,26 @@
+package com.domain.model.bookmark
+
+import com.domain.executer.PostExecutionThread
+import com.domain.interactor.CompletableUserCase
+import com.domain.repository.ProjectsRepository
+import io.reactivex.Completable
+import javax.inject.Inject
+
+class BookmarkProject @Inject constructor(
+    private val projectsRepository: ProjectsRepository ,
+    postExecutionThread: PostExecutionThread
+): CompletableUserCase<BookmarkProject.Params>(postExecutionThread){
+
+    data class Params constructor(val projectId:String){
+        companion object{
+            fun forProject(projectId: String):Params{
+                return Params(projectId)
+            }
+        }
+    }
+
+    override fun buildUserCaseObservable(params: Params?): Completable {
+        if(params == null) throw IllegalArgumentException("params cant be null!!")
+        return projectsRepository.bookmarkProject(params.projectId)
+    }
+}
