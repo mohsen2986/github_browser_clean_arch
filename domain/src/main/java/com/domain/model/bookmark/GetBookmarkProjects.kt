@@ -11,7 +11,7 @@ class GetBookmarkProjects @Inject constructor(
     private val projectsRepository: ProjectsRepository ,
     postExecutionThread: PostExecutionThread
 ):ObservableUsecase<List<Project> , Nothing>(postExecutionThread){
-    override fun buildUseCaseObservable(params: Nothing?): Observable<List<Project>> {
+    public override fun buildUseCaseObservable(params: Nothing?): Observable<List<Project>> {
         return projectsRepository.getBookmarkProject()
     }
 

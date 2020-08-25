@@ -1,4 +1,4 @@
-package com.domain.interactor
+package com.domain.interactor.browse
 
 import com.domain.executer.PostExecutionThread
 import com.domain.model.Project
@@ -11,7 +11,6 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
-import java.lang.Exception
 
 class GetProjectsTest{
 

@@ -19,7 +19,7 @@ class UnBookmarkProject @Inject constructor(
         }
     }
 
-    override fun buildUserCaseObservable(params: Params?): Completable {
+    public override fun buildUserCaseObservable(params: Params?): Completable {
         if(params == null) throw IllegalArgumentException("params cant be null!!")
         return projectsRepository.unBookmarkProject(params.projectId)
     }
