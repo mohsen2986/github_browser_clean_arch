@@ -1,2 +1,3 @@
+include ':Data'
 include ':domain'
 rootProject.name = "Github browser clean architecture"

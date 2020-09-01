@@ -1,0 +1,25 @@
+plugins {
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    def dataDependencies = rootProject.ext.dataDependencies
+    def dataTestDependencies = rootProject.ext.dataTestDependencies
+
+    compile project(':domain')
+
+    implementation dataDependencies.kotlin
+    implementation dataDependencies.javaxAnnotation
+    implementation dataDependencies.javaxInject
+    implementation dataDependencies.rxJava
+
+    implementation dataTestDependencies.junit
+    implementation dataTestDependencies.mockito
+    implementation dataTestDependencies.assertj
+    implementation dataTestDependencies.kotlinJUnit
+}

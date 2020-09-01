@@ -22,6 +22,7 @@ ext{
     jUnitVersion = "4.12"
     assertJVersion = "3.8.0"
     mockitoVersion = "2.2.0"
+    robolectricVersion = "3.4.2"
 
     domainDependencies = [
             kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}" ,
@@ -33,5 +34,18 @@ ext{
             junit: "junit:junit:${jUnitVersion}" ,
             mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}" ,
             assertj: "org.assertj:assertj-core:${assertJVersion}"
+    ]
+    dataDependencies = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}" ,
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}" ,
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}" ,
+            rxJava: "io.reactivex.rxjava2:rxkotlin:${RXjavaVersion}"
+    ]
+    dataTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}" ,
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}" ,
+            assertj: "org.assertj:assertj-core:${assertJVersion}" ,
+            kotlinJUnit: "org.jetbeans.kotlin:kotlin-test-junit${kotlinVersion}" ,
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}"
     ]
 }
