@@ -5,7 +5,6 @@ import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
-import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 
 abstract class ObservableUsecase<T , in Params> constructor(
