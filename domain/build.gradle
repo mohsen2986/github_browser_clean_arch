@@ -4,8 +4,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 dependencies {
@@ -13,13 +13,13 @@ dependencies {
     def domainTestDependencies = rootProject.ext.domainTestDependencies
 
     implementation domainDependencies.kotlin
-    implementation domainDependencies.javaxAnnotation
+    implementation domainDependencies.javaxAnnotations
     implementation domainDependencies.javaxInject
     implementation domainDependencies.rxJava
 
     implementation domainTestDependencies.junit
-    testImplementation domainTestDependencies.mockito
-    implementation domainTestDependencies.assertj
+    testImplementation domainTestDependencies.mockitoKotlin
+    implementation domainTestDependencies.assertJ
 }
 repositories {
     mavenCentral()

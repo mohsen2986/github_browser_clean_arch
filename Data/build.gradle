@@ -3,8 +3,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 dependencies {
@@ -14,12 +14,14 @@ dependencies {
     compile project(':domain')
 
     implementation dataDependencies.kotlin
-    implementation dataDependencies.javaxAnnotation
-    implementation dataDependencies.javaxInject
+    implementation dataDependencies.rxKotlin
     implementation dataDependencies.rxJava
+    implementation dataDependencies.javaxAnnotations
+    implementation dataDependencies.javaxInject
 
     implementation dataTestDependencies.junit
-    implementation dataTestDependencies.mockito
-    implementation dataTestDependencies.assertj
     implementation dataTestDependencies.kotlinJUnit
+    implementation dataTestDependencies.assertJ
+    implementation dataTestDependencies.mockitoKotlin
+    implementation dataTestDependencies.robolectric
 }
