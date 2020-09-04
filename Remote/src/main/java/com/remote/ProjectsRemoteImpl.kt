@@ -11,7 +11,7 @@ const val QUERY = "language:kotlin"
 const val SORT_BY = "stars"
 const val ORDER = "desc"
 
-class ProjectRemoteImpl @Inject constructor(
+class ProjectsRemoteImpl @Inject constructor(
     private val service: GithubTrendingService,
     private val mapper: ProjectsResponseModelMapper
 ): ProjectsRemote{
