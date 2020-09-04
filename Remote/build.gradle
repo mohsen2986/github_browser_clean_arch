@@ -1,5 +1,4 @@
 plugins {
-    id 'java-library'
     id 'kotlin'
 }
 
@@ -12,8 +11,8 @@ dependencies {
     def remoteDependencies = rootProject.ext.remoteDependencies
     def remoteTestDependencies = rootProject.ext.remoteTestDependencies
 
-    compile project(":Data")
-    
+    implementation project(':data')
+
     implementation remoteDependencies.kotlin
     implementation remoteDependencies.rxKotlin
     implementation remoteDependencies.rxJava
