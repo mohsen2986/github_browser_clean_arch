@@ -1,5 +1,6 @@
 package com.presentation
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.domain.model.Project
@@ -23,7 +24,12 @@ class BrowseBookmarkedProjectsViewModel @Inject constructor(
         super.onCleared()
     }
 
-    fun getProjects(){
+    fun getProjects() : LiveData<Resource<List<ProjectView>>>{
+        return liveData
+    }
+
+
+    fun fetchProjects(){
         liveData.postValue(Resource(ResourceState.LOADING))
         getBookmarkProjects.execute(ProjectSubscriber())
     }
