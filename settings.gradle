@@ -1,3 +1,4 @@
+include ':mobile-ui'
 include ':presentation'
 include ':cache'
 include ':Remote'

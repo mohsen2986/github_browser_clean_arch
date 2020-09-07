@@ -1,0 +1,122 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.mobile_ui"
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    sourceSets {
+        test {
+            java.srcDirs += "$projectDir/src/testShared/java"
+        }
+        androidTest {
+            java.srcDirs += "$projectDir/src/testShared/java"
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':presentation')
+    implementation project(':data')
+    implementation project(':Remote')
+    implementation project(':cache')
+    implementation project(':domain')
+    implementation mobileUIDependencies.ktx
+    implementation mobileUIDependencies.dagger
+    implementation mobileUIDependencies.rxJava
+    implementation mobileUIDependencies.rxKotlin
+    implementation mobileUIDependencies.kotlin
+    implementation mobileUIDependencies.rxAndroid
+    implementation mobileUIDependencies.glide
+    implementation mobileUIDependencies.javaxAnnotations
+    implementation mobileUIDependencies.javaxInject
+    implementation mobileUIDependencies.androidAnnotations
+    implementation mobileUIDependencies.appCompat
+    implementation mobileUIDependencies.recyclerView
+    implementation mobileUIDependencies.design
+    implementation mobileUIDependencies.timber
+    implementation(mobileUIDependencies.daggerAndroid) {
+        exclude group: 'com.android.support'
+    }
+    implementation mobileUIDependencies.roomRuntime
+    implementation mobileUIDependencies.roomRxJva
+    implementation mobileUIDependencies.constraintLayout
+    implementation mobileUIDependencies.lifecycleRuntime
+    implementation mobileUIDependencies.lifecycleExtensions
+    implementation mobileUIDependencies.lifecycleCommon
+    kapt mobileUIDependencies.daggerCompiler
+    kapt mobileUIDependencies.glideCompiler
+    kapt mobileUIDependencies.daggerAndroidProcessor
+    kapt mobileUIDependencies.roomCompiler
+
+    testImplementation mobileUITestDependencies.kotlinJUnit
+    testImplementation mobileUITestDependencies.testCore
+    testImplementation mobileUITestDependencies.testRunner
+    testImplementation mobileUITestDependencies.testRules
+    testImplementation mobileUITestDependencies.testExtJunit
+    testImplementation mobileUITestDependencies.rxIdler
+    testImplementation mobileUITestDependencies.robolectric
+    testImplementation mobileUITestDependencies.mockitoKotlin
+    testImplementation mobileUITestDependencies.espressoContrib
+    testImplementation mobileUITestDependencies.dagger
+    testImplementation(mobileUITestDependencies.daggerAndroid) {
+        exclude group: 'com.android.support'
+    }
+    kaptTest mobileUITestDependencies.daggerCompiler
+    kaptTest mobileUITestDependencies.daggerAndroidProcessor
+
+    androidTestImplementation mobileUITestDependencies.junit
+    androidTestImplementation mobileUITestDependencies.assertJ
+
+    androidTestImplementation mobileUITestDependencies.mockitoKotlin
+    androidTestImplementation mobileUITestDependencies.testRunner
+
+    androidTestImplementation mobileUITestDependencies.testRules
+    androidTestImplementation mobileUITestDependencies.testCore
+    androidTestImplementation mobileUITestDependencies.testExtJunit
+    androidTestImplementation (mobileUITestDependencies.mockitoAndroid)
+    androidTestImplementation mobileUITestDependencies.rxIdler
+    androidTestImplementation mobileUITestDependencies.mockitoAndroid
+    androidTestImplementation mobileUITestDependencies.dagger
+    androidTestImplementation(mobileUITestDependencies.daggerAndroid) {
+        exclude group: 'com.android.support'
+    }
+    androidTestImplementation mobileUITestDependencies.espressoCore
+    androidTestImplementation mobileUITestDependencies.espressoIntents
+    androidTestImplementation mobileUITestDependencies.espressoContrib
+    kaptAndroidTest mobileUITestDependencies.daggerCompiler
+    kaptAndroidTest mobileUITestDependencies.daggerAndroidProcessor
+}
