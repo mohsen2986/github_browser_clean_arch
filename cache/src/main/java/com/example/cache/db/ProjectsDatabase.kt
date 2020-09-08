@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.cache.dao.CachedProjectsDao
 import com.example.cache.dao.ConfigDao
+import com.example.cache.model.SingletonHolder
 
 @Database(entities = [
     CachedProjectsDao::class ,
@@ -20,19 +21,25 @@ abstract class ProjectsDatabase: RoomDatabase() {
     private var INSTANCE: ProjectsDatabase? = null
     private val lock = Any()
 
-    fun getInstance(context: Context): ProjectsDatabase {
-        if (INSTANCE == null) {
-            synchronized(lock) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        ProjectsDatabase::class.java,
-                        "projects.db"
-                    ).build()
-                }
-            }
-        }
-        return INSTANCE as ProjectsDatabase
-    }
-
+//    open fun getInstance(context: Context): ProjectsDatabase {
+//        if (INSTANCE == null) {
+//            synchronized(lock) {
+//                if (INSTANCE == null) {
+//                    INSTANCE = Room.databaseBuilder(
+//                        context.applicationContext,
+//                        ProjectsDatabase::class.java,
+//                        "projects.db"
+//                    ).build()
+//                }
+//            }
+//        }
+//        return INSTANCE as ProjectsDatabase
+//    }
+    companion object : SingletonHolder<Context, ProjectsDatabase>({
+        Room.databaseBuilder(
+            it.applicationContext,
+            ProjectsDatabase::class.java,
+            "projects.db"
+        ).build()
+    })
 }
