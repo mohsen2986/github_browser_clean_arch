@@ -12,7 +12,6 @@ import com.example.cache.db.ProjectConstants.QUERY_UPDATE_BOOKMARK_STATUS
 import com.example.cache.model.CachedProject
 import io.reactivex.Flowable
 import io.reactivex.Single
-import io.reactivex.internal.operators.flowable.FlowableAll
 
 @Dao
 abstract class CachedProjectsDao{
